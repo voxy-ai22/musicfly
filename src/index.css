@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply bg-[#080808] text-white min-h-screen selection:bg-white/20 overflow-hidden;
+  font-family: "DM Sans", sans-serif;
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-surface {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-dark {
+    background: rgba(8,8,8,0.97);
+    backdrop-filter: blur(40px);
+  }
+
+  .lyric-active {
+    @apply text-white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+
+  .lyric-dim {
+    @apply text-white/30 transition-all duration-500;
+  }
+
+  .mask-lyrics {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { @apply bg-white/10 rounded-full; }
+
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/5 hover:border-white/15;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+

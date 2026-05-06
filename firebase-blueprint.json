@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "User specific data and preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "likedSongIds": { "type": "array", "items": { "type": "string" } },
+        "recentSongIds": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["uid"]
+    },
+    "Playlist": {
+      "title": "Playlist",
+      "description": "A collection of songs",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "thumbnail": { "type": "string" },
+        "songIds": { "type": "array", "items": { "type": "string" } },
+        "isPublic": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["ownerId", "title"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles and preferences"
+    },
+    "/playlists/{playlistId}": {
+      "schema": "Playlist",
+      "description": "User created playlists"
+    }
+  }
+}
