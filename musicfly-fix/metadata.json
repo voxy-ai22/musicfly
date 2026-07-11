@@ -1,0 +1,9 @@
+{
+  "name": "NexMusic",
+  "description": "Platform streaming musik modern oleh NexaDev dengan desain Glassmorphic.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
